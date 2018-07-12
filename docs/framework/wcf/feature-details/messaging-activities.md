@@ -9,24 +9,24 @@ Messaging activities allow workflows to send and receive WCF messages. By adding
 ## Message Exchange Patterns  
  There are three basic message exchange patterns:  
   
--   **Datagram** - When using the datagram MEP the client sends a message to the service, but the service does not respond. This is sometimes called "fire and forget". A fire and forget exchange is one that requires out-of-band confirmation of successful delivery. The message might be lost in transit and never reach the service. If the client successfully sends a message, it does not guarantee that the service has received the message. The datagram is a fundamental building block for messaging, as you can build your own MEPs on top of it.  
+- **Datagram** - When using the datagram MEP the client sends a message to the service, but the service does not respond. This is sometimes called "fire and forget". A fire and forget exchange is one that requires out-of-band confirmation of successful delivery. The message might be lost in transit and never reach the service. If the client successfully sends a message, it does not guarantee that the service has received the message. The datagram is a fundamental building block for messaging, as you can build your own MEPs on top of it.  
   
--   **Request-Response** - When using the request-response MEP the client sends a message to the service, the service does the required processing, and then sends a response back to the client. The pattern consists of request-response pairs. Examples of request-response calls are remote procedure calls (RPC) and browser GET requests. This pattern is also known as half-duplex.  
+- **Request-Response** - When using the request-response MEP the client sends a message to the service, the service does the required processing, and then sends a response back to the client. The pattern consists of request-response pairs. Examples of request-response calls are remote procedure calls (RPC) and browser GET requests. This pattern is also known as half-duplex.  
   
--   **Duplex** - When using the duplex MEP the client and service can send messages to each other in any order. The duplex MEP is like a phone conversation, where each word being spoken is a message.  
+- **Duplex** - When using the duplex MEP the client and service can send messages to each other in any order. The duplex MEP is like a phone conversation, where each word being spoken is a message.  
   
  The messaging activities allow you to implement any of these basic MEPs as well as any arbitrarily complex MEP.  
   
 ## Messaging Activities  
  The [!INCLUDE[netfx_current_long](../../../../includes/netfx-current-long-md.md)] defines the following messaging activities:  
   
--   <xref:System.ServiceModel.Activities.Send>- Use the <xref:System.ServiceModel.Activities.Send> activity to send a message.  
+- <xref:System.ServiceModel.Activities.Send>- Use the <xref:System.ServiceModel.Activities.Send> activity to send a message.  
   
--   <xref:System.ServiceModel.Activities.SendReply> - Use the <xref:System.ServiceModel.Activities.SendReply> activity to send a response to a received message. This activity is used by workflow services when implementing a request/reply MEP.  
+- <xref:System.ServiceModel.Activities.SendReply> - Use the <xref:System.ServiceModel.Activities.SendReply> activity to send a response to a received message. This activity is used by workflow services when implementing a request/reply MEP.  
   
--   <xref:System.ServiceModel.Activities.Receive>- Use the <xref:System.ServiceModel.Activities.Receive> activity to receive a message.  
+- <xref:System.ServiceModel.Activities.Receive>- Use the <xref:System.ServiceModel.Activities.Receive> activity to receive a message.  
   
--   <xref:System.ServiceModel.Activities.ReceiveReply> - Use the <xref:System.ServiceModel.Activities.ReceiveReply> activity to receive a reply message. This activity is used by workflow service clients when implementing a request/reply MEP.  
+- <xref:System.ServiceModel.Activities.ReceiveReply> - Use the <xref:System.ServiceModel.Activities.ReceiveReply> activity to receive a reply message. This activity is used by workflow service clients when implementing a request/reply MEP.  
   
 ## Messaging Activities and Message Exchange Patterns  
  A datagram MEP involves a client sending a message and a service receiving the message. If the client is a workflow use a <xref:System.ServiceModel.Activities.Send> activity to send the message. To receive that message in a workflow, use a <xref:System.ServiceModel.Activities.Receive> activity. The <xref:System.ServiceModel.Activities.Send> and <xref:System.ServiceModel.Activities.Receive> activities each have a property named `Content`. This property contains the data being sent or received. When implementing the request-response MEP both the client and the service use pairs of activities. The client uses a <xref:System.ServiceModel.Activities.Send> activity to send the message and a <xref:System.ServiceModel.Activities.ReceiveReply> activity to receive the response from the service. These two activities are associated with each other by the <xref:System.ServiceModel.Activities.ReceiveReply.Request%2A> property. This property is set to the <xref:System.ServiceModel.Activities.Send> activity that sent the original message. The service also uses a pair of associated activities: <xref:System.ServiceModel.Activities.Receive> and <xref:System.ServiceModel.Activities.SendReply>. These two activities are associated by the <xref:System.ServiceModel.Activities.SendReply.Request%2A> property. This property is set to the <xref:System.ServiceModel.Activities.Receive> activity that received the original message. The <xref:System.ServiceModel.Activities.ReceiveReply> and <xref:System.ServiceModel.Activities.SendReply> activities, like <xref:System.ServiceModel.Activities.Send> and <xref:System.ServiceModel.Activities.Receive> allow you to send a <xref:System.ServiceModel.Channels.Message> instance or a message contract type.  

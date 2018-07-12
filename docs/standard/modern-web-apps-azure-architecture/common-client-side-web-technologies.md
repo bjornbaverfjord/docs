@@ -8,7 +8,7 @@ ms.date: 6/28/2018
 # Common client side web technologies
 
 > "Websites should look good from the inside and out."  
-> _- Paul Cookson_
+> *- Paul Cookson*
 
 ASP.NET Core applications are web applications and they typically rely on client-side web technologies like HTML, CSS, and JavaScript. By separating the content of the page (the HTML) from its layout and styling (the CSS), and its behavior (via JavaScript), complex web apps can leverage the Separation of Concerns principle. Future changes to the structure, design, or behavior of the application can be made more easily when these concerns are not intertwined.
 
@@ -58,6 +58,7 @@ For example, imagine that if a textbox's value exceeds 10, an element on the pag
 
 ### jQuery vs a SPA Framework
 
+
 | **Factor** | **jQuery** | **Angular**|
 |--------------------------|------------|-------------|
 | Abstracts the DOM | **Yes** | **Yes** |
@@ -88,7 +89,7 @@ import { Component } from '@angular/core';
 export class AppComponent { name = 'Angular'; }
 ```
 
-Components are defined using the @Component decorator function, which takes in metadata about the component. The selector property identifies the id of the element on the page where this component will be displayed. The template property is a simple HTML template that includes a placeholder that corresponds to the component's name property, defined on the last line.
+Components are defined using the @"Component" decorator function, which takes in metadata about the component. The selector property identifies the id of the element on the page where this component will be displayed. The template property is a simple HTML template that includes a placeholder that corresponds to the component's name property, defined on the last line.
 
 By working with components and templates, instead of DOM elements, Angular apps can operate at a higher level of abstraction and with less overall code than apps written using just JavaScript (also called "vanilla JS") or with jQuery. Angular also imposes some order on how you organize your client-side script files. By convention, Angular apps use a common folder structure, with module and component script files located in an app folder. Angular scripts concerned with building, deploying, and testing the app are typically located in a higher-level folder.
 
@@ -136,28 +137,28 @@ JavaScript frameworks continue to evolve with breakneck speed. Use the considera
 
 > ### References – Client Web Technologies
 > - **HTML and CSS**  
-> <https://www.w3.org/standards/webdesign/htmlcss>
+>   <https://www.w3.org/standards/webdesign/htmlcss>
 > - **Sass vs. LESS**  
-> <https://www.keycdn.com/blog/sass-vs-less/>
+>   <https://www.keycdn.com/blog/sass-vs-less/>
 > - **Styling ASP.NET Core Apps with LESS, Sass, and Font Awesome**  
-> <https://docs.microsoft.com/aspnet/core/client-side/less-sass-fa>
+>   <https://docs.microsoft.com/aspnet/core/client-side/less-sass-fa>
 > - **Client-Side Development in ASP.NET Core**  
-> <https://docs.microsoft.com/aspnet/core/client-side/>
+>   <https://docs.microsoft.com/aspnet/core/client-side/>
 > - **jQuery**  
-> <https://jquery.com/>
+>   <https://jquery.com/>
 > - **jQuery vs AngularJS**  
-> <https://www.airpair.com/angularjs/posts/jquery-angularjs-comparison-migration-walkthrough>
+>   <https://www.airpair.com/angularjs/posts/jquery-angularjs-comparison-migration-walkthrough>
 > - **Angular**  
-> <https://angular.io/>
+>   <https://angular.io/>
 > - **React**  
-> <https://facebook.github.io/react/>
+>   <https://facebook.github.io/react/>
 > - **React Slingshot**  
-> <https://github.com/coryhouse/react-slingshot>
+>   <https://github.com/coryhouse/react-slingshot>
 > - **React vs Angular 2 Comparison**  
-> <https://www.codementor.io/codementorteam/react-vs-angular-2-comparison-beginners-guide-lvz5710ha>
+>   <https://www.codementor.io/codementorteam/react-vs-angular-2-comparison-beginners-guide-lvz5710ha>
 > - **5 Best JavaScript Frameworks of 2017**  
-> <https://hackernoon.com/5-best-javascript-frameworks-in-2017-7a63b3870282>
+>   <https://hackernoon.com/5-best-javascript-frameworks-in-2017-7a63b3870282>
 
->[!div class="step-by-step"]
-[Previous](common-web-application-architectures.md)
-[Next](develop-asp-net-core-mvc-apps.md)
+> [!div  class="step-by-step"]
+> [Previous](common-web-application-architectures.md)
+> [Next](develop-asp-net-core-mvc-apps.md)
